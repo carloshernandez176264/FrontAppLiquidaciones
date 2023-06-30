@@ -1,0 +1,105 @@
+<div *ngIf="employee!== undefined" >
+  <h1>
+    {{employee.id ? 'Editar' : 'Agregar'}}
+    Empleado
+    <small>{{employee.name}}</small>
+  </h1>
+</div>
+
+<mat-divider class="mb-2"></mat-divider>
+
+<div class="grid">
+
+<div class="col-12 sm:col-6">
+
+<mat-card>
+  <mat-card-content>
+
+    <form class="grid" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+      <input type="hidden" formControlName="id">
+
+      <mat-form-field class="col-12 sm:col-6">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="name"/>
+      </mat-form-field>
+
+      <mat-form-field class="col-12 sm:col-6">
+        <mat-label>Cedula</mat-label>
+        <input matInput type="text"
+        required
+        formControlName="identification">
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Salario</mat-label>
+        <input matInput type="text"
+        required
+        formControlName="salary">
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Tipo de Contrato</mat-label>
+        <input matInput type="text"
+        required
+        formControlName="contractType">
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Fecha Inicio de Contrato</mat-label>
+        <input matInput type="text"
+        required
+        formControlName="contractStartDate">
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Fecha Finalización de Contrato</mat-label>
+        <input matInput type="text"
+        required
+        formControlName="contractEndDate">
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Cargo</mat-label>
+        <input matInput type="text"
+        required
+        formControlName="role">
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Area</mat-label>
+        <input matInput type="text"
+        required
+        formControlName="area">
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Foto</mat-label>
+        <input matInput type="text"
+        required
+        formControlName="photo">
+      </mat-form-field>
+    </form>
+
+    <div class="flex justify-content-between">
+
+      <button mat-flat-button color="warn" (click)="deleteEmployee()">Borrar</button>
+
+      <span></span>
+
+      <button mat-flat-button color="primary" (click)="onSubmit()">
+        <mat-icon>save</mat-icon>
+        Guardar
+      </button>
+
+    </div>
+  </mat-card-content>
+</mat-card>
+</div>
+
+<div class="col-12 sm:col-6">
+
+  <mat-card>
+    <img [src]="currentEmployee |employeeImage" alt="Imagen del Empleado" mat-card-image >
+  </mat-card>
+</div>

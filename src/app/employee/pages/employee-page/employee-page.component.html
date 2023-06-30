@@ -1,0 +1,48 @@
+<ng-template #divLoading>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+            <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>
+<br>
+
+<div *ngIf="employee; else divLoading" class="grid p-2">
+
+  <mat-card class="col-12 sm:col-6">
+
+    <mat-card-header>
+      <mat-card-title>{{employee.name.value}}</mat-card-title>
+      <mat-card-subtitle>{{employee.identification.value}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img [src]="employee" [alt]="employee.photo.value" mat-card-image>
+
+  </mat-card>
+
+  <mat-card class="col-12 sm:col-6">
+    <mat-card-header>
+      <mat-card-title>Información</mat-card-title>
+      <mat-card-subtitle>{{employee.name.value}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>{{employee.identification.value}}</mat-list-item>
+        <mat-list-item>{{employee.salary.value}}</mat-list-item>
+        <mat-list-item>{{employee.contractStartDate}}</mat-list-item>
+        <mat-list-item>{{employee.area.value}}</mat-list-item>
+      </mat-list>
+
+      <button
+      mat-button
+      color="warn"
+      (click)="goBack()">Regresar
+
+      </button>
+    </mat-card-content>
+
+  </mat-card>
+</div>
+
+

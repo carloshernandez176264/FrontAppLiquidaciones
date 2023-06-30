@@ -1,0 +1,11 @@
+<h1>Listado de Empleados</h1>
+<mat-divider></mat-divider>
+
+<div class="grid bm-8 pt-2">
+
+  <div
+  div class="col-12 sm:col4 md:col-3 xl:col-2">
+    <!-- <app-card [employees]="employees"></app-card> -->
+    <app-card *ngFor="let employee of employees" [employee]="employee"></app-card>
+  </div>
+</div>
